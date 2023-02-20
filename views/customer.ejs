@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>customer</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
+  <style>
+    table,tr{
+        margin-top: 3%;
+      
+        text-align: center;
+        width: 1200px;
+    }
+    table,tr,th,td{
+        border-bottom: 2px solid #3d3d3d;
+        
+       }
+       
+       body{
+        background-color: #3d3d3d;
+        font-family: 'Rubik', sans-serif;
+        transition: .2s linear;
+        overflow-y: auto;
+        margin: 0;
+       }
+       #transfer{
+       
+      
+      
+        padding: 8px 34px;
+        border-radius: 50px;
+       background-color:#4b4b4b;
+       text-decoration: none;
+       color: #fff;
+       font-size: 15px;
+    
+    }
+    #transfer:hover{
+        color: #3d3d3d;
+        text-decoration: underline #13eccc;
+        background-color: #13eccc;
+    }
+
+       #mmain{
+        width: 1300px;
+        height: 600px;
+     
+        padding-left:  8%;
+        padding-right:  8%;
+        margin-top: 2%;
+        
+    }
+       h2{
+        color: #fff;
+        margin-left: 9%;
+        margin-top: 2%;
+       }
+    .hea{
+        display: flex;
+        justify-content: space-around;
+       
+    }
+    .ptn{
+        margin-right: 3%;
+        text-decoration: none;
+        color: #aaa;
+      font-size: 17px;
+    
+    }
+    nav{
+        margin-left:12% ;
+        width: 560px;
+    margin-top: 1em;
+    }
+    .hgf{
+        color: #fff;
+        cursor: pointer;
+        font-size: 18px;
+        margin-top: 10px;
+        display: none;
+    }
+    
+      span{
+        color: #13eccc;
+      } 
+    
+    a:hover{
+        color: #13eccc;
+    }
+    
+    .logo{
+        margin-left:30px ; 
+        
+      
+        font-size: 36px;
+        color: #fff;
+    }
+    header{
+        background-color: #4b4b4b;
+        height: 58px;
+        position: sticky;
+        top: 0;
+       
+    }
+    td{
+        row-gap: 5%;
+        padding-top: 9px;
+        padding-bottom:9px ;
+       
+
+    }
+    th{
+        row-gap: 5%;
+        padding-top: 9px;
+        padding-bottom:11px ;
+       
+
+    }
+    #hhead{
+        background-color: #13eccc;
+        color: #fff;
+    }
+    tbody{
+        background-color: #fff;
+        color:#3d3d3d;
+    }
+
+
+tr{
+    row-gap: 5%;
+    
+}
+  /* div{
+    margin-left: 5%;
+    margin-top: 4%;
+   
+   }
+   tr{
+    padding-top: 3%;
+   }
+  
+   a{
+    background-color:#333;
+    color:  #fff;
+    border-radius: 5px;
+    width: 100px;
+    padding-right:  12px;
+    padding-left:  12px;
+    border-radius: 50px;
+    text-decoration: none;
+     
+}
+#transfer:hover{
+    text-decoration: underline rgb(163, 242, 163);
+    color: rgb(35, 113, 35);
+   
+}
+   table,tr{
+    margin-top: 3%;
+  
+    text-align: center;
+    width: 1200px;
+}
+*/
+::-webkit-scrollbar{
+    height: .5rem;
+    width: 9px;
+ }
+ 
+ ::-webkit-scrollbar-track{
+    background-color: transparent;
+ }
+ 
+ ::-webkit-scrollbar-thumb{
+    background-color:#13eccc;
+    border-radius: 5rem;
+ }
+
+</style>
+</head>
+<body>
+    <header id="Home">
+        <div class="hea" >
+        <div class="logo">Ocean<span>Bank.</span> </div>
+     <div class="dropdown">  <div class="hgf" ><i class="fa fa-bars" aria-hidden="true"></i></div></div> <Nav><a  class="ptn" href="/home">Home</a>
+            <a  class="ptn" href="https://www.thesparksfoundationsingapore.org/" >About</a>
+            <a  class="ptn" href="/customer">All customers</a>
+            <a  class="ptn" href="/trans">Transaction History</a>
+            <a  class="ptn" href="/transferr">Money Transfer</a>
+          
+        </Nav>
+        
+      </div>
+    </header>
+    <div class="table-data">
+<h2>View customers</h2>
+<div id="mmain">
+    <table >
+        <tr id="hhead">
+            <th>Acc</th>
+            <th>Name</th>
+            <th>Email Address</th>
+            <th>Balance</th>
+            
+            <th>Transfer</th>
+        </tr>
+        
+        <%
+        if(data.length!=0){
+        var i=1;
+        data.forEach(function(rows){
+        %>
+        <tr class="bbody">
+            <td><%=i; %></td>
+            <td><%=rows.Name %></td>
+            <td><%=rows.Email %></td>
+            <td><%=rows.Balance %></td>
+            
+            <td><a href="/transferr" id="transfer">Trasnfer
+                Money</a></td>
+            
+        </tr>
+        <%  i++; }) %>
+        <% } else{ %>
+            <tr>
+                <td colspan="7">No Data Found</td>
+            </tr>
+        <% } %>
+    </table>
+    </div>
+</div>
+</body>
+</html>
